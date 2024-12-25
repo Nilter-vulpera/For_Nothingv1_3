@@ -1,0 +1,76 @@
+{% extends 'flatpages/main/html/main.html' %}
+{% load static %}
+{%load static%}
+<head>
+
+
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block title %} Новости на сайте {% endblock %}
+
+
+{% block Post_content %}
+
+
+
+
+        <div class="Posts_posts">
+            {%if posts %}
+            <div class="Posts">
+                {%for p in posts%}
+
+                {% csrf_token %}
+                <div class="OnePost">
+                    <div class="Content_with_posts">
+                        <div><a href="{% url 'groups:group_detail' p.groupsPosts.id %}" methods="POST">
+                            {{ p.groupsPosts.name }}</a>
+                        </div>
+
+                        <img width="300px" height="300px" src="{{MEDIA_URL}}{{p.photo}}"/>
+                        <div class="Post_without_img">
+
+                            <form method="POST" action="{% url 'users:posts' pk=p.pk %}">
+                                <div id="commentsForMainPosts " class="input_posts">
+                                    {% csrf_token %}
+                                    {{ form }}
+
+                                    <button type="submit">Send</button>
+                                </div>
+                            </form>
+
+                            <div class="PostContent">
+                                        {{p.content}}
+                                        {{p.time_create}}
+                                        {{p.user.username}}
+
+                            </div>
+                            <div class="commentsForMainPosts">
+                                {% for comment in p.Posts.all %}
+                                     <div class="commentAll">
+                                         <p>Автор: {{comment.author_message_content}}</p>
+                                         {{comment.contentForPosts}}
+
+                                     </div>
+                                {%empty%}
+                                    <p>Нет Комментариев</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                {%endfor%}
+            </div>
+
+            {% endif %}
+        </div>
+
+
+
+{% endblock Post_content %}
+
+</body>

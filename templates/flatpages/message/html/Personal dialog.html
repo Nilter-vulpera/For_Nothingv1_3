@@ -1,0 +1,52 @@
+
+{% load i18n %}
+{% csrf_token %}
+{% load tz %}
+{% load static %}
+{% block Message_content_person %}
+
+<div class="list-group-item {% if not message_item.is_read %}unread{% endif %}" data-id="{{ message_item.id }}">
+    <ul>
+        <li>
+            <a href="{% url 'users:Profile' message_item.author.username %}">
+                <img class="avatar-comment" src="{{ message_item.author.userprofile.get_avatar }}">
+            </a>
+        </li>
+    </ul>
+    <div class="reply-body">
+        <ul class="list-inline">
+            <li class="drop-left-padding">
+                From
+                <strong class="list-group-item-heading">
+                    <a href="{% url 'users:Profile' message_item.author.username %}">
+                        {{ message_item.author.username }}
+                    </a>
+                </strong>
+            </li>
+            <li class="pull-right text-muted"><h5>{{ message_item.pub_date|utc }}</h5></li>
+            <li>
+                {% if message_item.is_readed %}
+                    <small>Прочитано</small>
+                {% else %}
+                    <small>Не прочитано</small>
+                {% endif %}
+            </li>
+        </ul>
+        <ul>
+          <div class="text_settings">
+              <li style="color:{{ message_item.color|safe }};">{{ message_item.message|safe }}</li>
+          </div>
+          <div>
+            <img width='40vh' height='40vh' src='{{MEDIA_URL}} {{ message_item.photoForMessage }}'/>
+          </div>
+        </ul>
+    </div>
+</div>
+
+{% endblock Message_content_person %}
+
+
+
+
+
+

@@ -1,0 +1,34 @@
+{% extends 'flatpages/main/html/main.html' %}
+{% load static %}
+{% load i18n %}
+{% csrf_token %}
+{% load tz %}
+
+<html lang="en">
+<head>
+
+
+{%block chatbot %}
+
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
+    <body>
+<div class="ChatBot">
+    <h1>Enter your text:</h1>
+    <form id="ChatBotForm" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Submit">
+    </form>
+    <div class="responseFromChatBot">
+        {% if response %}
+            <h2>Response:</h2>
+            <p>{{ response }}</p>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+
+{%endblock%}
+</html>

@@ -1,0 +1,24 @@
+
+{%load static%}
+
+<link rel="stylesheet" type="text/CSS" href="{% static 'css/login.css'%}">
+{% block content %}
+<h2> Войти в систему </h2>
+<form method="post" action="{% url 'users:login' %}">
+  {% csrf_token %}
+  <h1>Log-in</h1>
+      <p>Please, use the following form to log-in:</p>
+      <form action="." method="post">
+          {% csrf_token %}
+          {{ Loginform.as_p }}
+
+
+          <p><input type="submit" value="Log-in"></p>
+    </form>
+    {% for message in messages %}
+        <div class="message {{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+{% endblock%}

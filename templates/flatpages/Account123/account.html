@@ -1,0 +1,84 @@
+{% extends 'flatpages/main/html/main.html' %}
+{% load static %}
+{% load i18n %}
+{% block User_content %}
+
+    <div class="header-bar">
+        <h1>Profile</h1>
+        <div class="card-body">
+            {{ status }}
+            <p><strong>Username:</strong> {{ page_user }}</p><br><br>
+            <p><strong>Bio:</strong> {{ profile.bio }}</p><br><br>
+            <p>
+                <img src="{{ page_user.profile.avatar.url }}" height="50px" width="50px">
+            </p>
+            {% if page_user != request.user %}
+                {% if not is_blockedByUou %}
+                    <form action="{% url 'users:block_user' page_user.username %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Заблокировать</button>
+                    </form>
+                    <a href="{% url 'users:add_friend' page_user.username %}">Добавить в друзья</a>
+                    <button id="openButtonForm">Отправить сообщение</button>
+                {% else %}
+                    <form action="{% url 'users:unblock_user' page_user.username %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Разблокировать</button>
+                    </form>
+
+                {% endif %}
+            {% endif %}
+
+            <div>
+                {% if not is_blockedByUou %}
+                    {% if not is_blockedByEnemy %}
+                        {% if chatFromUser %}
+                        <div  id="message-formFromAccount" class="messageFormInAccount">
+                            <form  method="post" action="{% url 'messages_main:messages' chatFromUser.id 0 user.username %}">
+                                <div class="textarea2">
+                                    {% csrf_token %}
+                                    {{ Messageform.as_p }}
+                                    <button id="send-button" type="submit" class="btn">{% trans "Отправить" %}</button>
+                                </div>
+                            </form>
+                        </div>
+                        {% else %}
+                            <p>Чат не найден</p>
+                            <a href="{% url 'messages_main:messages' chatFromUser.id recipient.username %}">{% trans "Создать" %}</a>
+                        {% endif %}
+                    {% else %}
+                        {% if chatFromUser %}
+                            <p>Вас заблокировал данный пользователь</p>
+                        {% else %}
+                            <p>У вас нет чата и вы не сможете общаться, пока вас не разблокируют</p>
+                        {% endif %}
+                    {% endif %}
+                {% else %}
+                    {% if chatFromUser %}
+                            <p>Вы заблокировали данного пользователя</p>
+                    {% else %}
+                            <p>У вас нет чата и вы не сможете общаться, пока не разблокируите данного пользователя</p>
+                    {% endif %}
+                {% endif %}
+            </div>
+
+            {% if request.user.is_authenticated and request.user == page_user %}
+                <a href=""><button class="button">Edit</button></a>
+                <div class="avatarka_Img">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ avatarkaForm.as_p }}
+                        <button type="submit">Upload avatar image</button>
+                    </form>
+                </div>
+                <div class="background_Img">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ ImageForm.as_p }}
+                        <button type="submit">Upload background</button>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock User_content %}

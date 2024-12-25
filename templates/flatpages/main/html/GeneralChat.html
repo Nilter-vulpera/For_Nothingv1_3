@@ -1,0 +1,27 @@
+{% extends 'flatpages\main\html\main.html' %}
+{% load static %}
+{% block GeneralChat  %}
+
+    <div class="container">
+        <div class="General chat">
+            <a href="{%url 'main_page:chat'%}">General chat</a>
+
+            <div class="col-lg-6">
+
+               {%for chat in chats %}
+                <li>{{chat.content}}
+                    {{chat.author_GC.username}}</li>
+              {%endfor%}
+
+            </div>
+        </div>
+
+    </div>
+<div class="GCINBT">
+                        <form method="post" action="{%url 'main_page:chat'%}">
+                            {% csrf_token %}
+                            <input class='GCinput' type='text' name="message">
+                            <button class="GCbutton" type="submit">Отправить</button>
+                        </form>
+</div>
+{% endblock %}

@@ -1,0 +1,110 @@
+h2{
+    background-color:red;
+}
+.panel{
+
+    top: 10; right:500;
+    width:50vh;
+    overflow-y:scroll;
+    height:70vh;
+    box-shadow: 10px 5px 5px red;
+    margin-left:20%;
+    border:solid gold;
+    position:fixed;
+
+
+
+}
+.panel_dialog_with_user{
+    position:fixed;
+    background-color: gold;
+    color:black;
+
+    margin-left:-3.2vh;
+    margin-top:-1.25vh;
+    border: solid red;
+    padding-left:25vh;
+}
+
+
+
+.reply-body{
+    width:40vh;
+    border:thick double black;
+    margin:25px;
+    display:inline-block;
+    background-color:gold;
+    border-top-left-radius:50px;
+    height:auto;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+    
+}
+textarea{
+    display:inline-block;
+    background: fixed;
+    resize: none;
+    border:solid gold;
+
+
+
+
+}
+
+.textarea2{
+    margin-top:-0.85%;
+
+    position:fixed;
+    right:62.3%;
+}
+.container{
+    top:0%;
+    height:50vh;
+    width:31vh;
+    
+
+}
+
+.select123{
+    margin-top:50%;
+}
+
+.text_color{
+    margin-top:40%;
+}
+.text_settings{
+  max-width:35vh;
+  word-wrap:break-word;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

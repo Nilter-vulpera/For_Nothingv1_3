@@ -1,0 +1,56 @@
+{% extends 'flatpages/main/html/main.html' %}
+{% load static %}
+{%block account_content1%}
+<div>
+
+
+    <h1>Search Users</h1>
+    <form method="get" action="{% url 'users:AllUsers' %}">
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+</div>
+<div class="users_list">
+    {% for account in users_list %}
+
+        <p>
+
+            <a href="{% url 'users:Profile' account.username %}">
+                <h1>{{account.username}}</h1>
+            </a>
+
+        </p>
+
+    {% endfor %}
+</div>
+<div class="Search">
+    <h2>Results</h2>
+    <ul>
+        {% for user in results %}
+            <a href="{% url 'users:Profile' user.username %}"><li>{{ user.username }}</li></a>
+        {% empty %}
+            <li>No users found.</li>
+        {% endfor %}
+    </ul>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if results.has_previous %}
+                <a href="?query={{ form.query.value }}&page=1">&laquo; first</a>
+                <a href="?query={{ form.query.value }}&page={{ results.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ results.number }} of {{ results.paginator.num_pages }}.
+            </span>
+
+            {% if results.has_next %}
+                <a href="?query={{ form.query.value }}&page={{ results.next_page_number }}">next</a>
+                <a href="?query={{ form.query.value }}&page={{ results.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+</div>
+
+{%endblock account_content1%}

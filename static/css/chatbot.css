@@ -1,0 +1,20 @@
+body{
+    background-color:black;
+
+}
+.responseFromChatBot{
+    max-height:40vh;
+    width:67vh;
+    min-height:10vh;
+    height:auto;
+    border:solid gold;
+    background: linear-gradient(45deg, red, blue);
+    color:yellow;
+    overflow-y:scroll;
+}
+.ChatBot{
+    border-top-left-radius: 90px;
+
+    color:red;
+    background: linear-gradient(gray,gold);
+}
