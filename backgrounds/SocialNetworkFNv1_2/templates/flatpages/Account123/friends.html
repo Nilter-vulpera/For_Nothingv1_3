@@ -1,0 +1,20 @@
+<style>
+   .usersInMain{
+        margin-left:10vh;
+        position:fixed;
+        background:linear-gradient(red,yellow);
+        margin-top:10vh;
+        border:solid 5px gold;
+        box-shadow: 10px 5px 5px red;
+}
+</style>
+<div class="usersInMain" id="friends-list">
+    <h2>Your Friends</h2>
+    <ul>
+        {% for friend in friends_list %}
+            <a href="{% url 'users:Profile' friend.username %}"><li>{{ friend.username }}</li></a>
+        {% empty %}
+            <li>You have no friends yet.</li>
+        {% endfor %}
+    </ul>
+</div>

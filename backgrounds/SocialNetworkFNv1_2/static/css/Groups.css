@@ -1,0 +1,71 @@
+.GroupsMenu{
+
+
+    width:500px;
+    overflow-y:scroll;
+    min-height:50vh;
+    max-height:60vh;
+
+    box-shadow: 10px 5px 5px red;
+
+    border:solid gold;
+
+    background:linear-gradient(red,yellow);
+    margin-top:5vh;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+.GroupName{
+
+     margin: 10px;
+    margin-top:20px;
+
+
+}
+.GroupName a{
+    display:block;
+    border:solid black;
+    background-color:gold;
+    color:red;
+    font-size: 1.5rem;
+    padding:5vh;
+    text-decoration: none;
+
+}
+.GroupDetail{
+    top: 10%;
+    background:linear-gradient(red,yellow);
+    width:500px;
+    overflow-y:scroll;
+    min-height:30vh;
+    max-height:60vh;
+    min-width:600px;
+    box-shadow: 10px 5px 5px red;
+    border-top-right-radius: 90px;
+    border:solid gold;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+.GroupsDetailPosts{
+    
+}
+
+.name_of_group_in_main{
+  display:block;
+}
+
+.post_detail_in_group{
+  border:solid gold;
+  margin:2vh;
+
+}
+
+.img_post_detail_in_group{
+  display:inline-block;
+
+}
+

@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+        <link rel="stylesheet" href="{% static 'css\main.css' %}" >
+        <link rel="stylesheet" href="{% static 'css\message.css' %}" >
+        <link rel="stylesheet" href="{% static 'css\users.css' %}" >
+        <link rel="stylesheet" href="{% static 'css\post.css' %}">
+        <link rel="stylesheet" href="{% static 'css\Groups.css' %}">
+        <link rel="stylesheet" href="{% static 'css\chatbot.css' %}" >
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Security-Policy" content="script-src-elem 'self' 'nonce-HelloFromHell5156' https://code.jquery.com/jquery-1.10.2.js https://code.jquery.com/jquery-3.6.0.min.js http://gc.kis.v2.scr.kaspersky-labs.com ws://gc.kis.v2.scr.kaspersky-labs.com http://127.0.0.1:8000/static/js/main.js 'unsafe-inline';">
+        <title>Main Template</title>
+        <script src="{% static 'js/main.js' %}" nonce="HelloFromHell5156"></script>
+        <title>Title</title>
+        <style>
+            body {
+                margin:0%;
+                padding:0;
+                min-width: 936px;
+                background: url({% if request.user.is_authenticated and request.user.background.background_img %}
+                    {{ user.background.background_img.url }}
+                {% else %}
+                    /media/backgrounds/ForNothing.jpg
+                {% endif %});
+                background-repeat: no-repeat;
+                height:110vh;
+                background-size:200vh;
+                background-position:center;
+            }
+        </style>
+
+
+</head>
+</html>
+<body>
+<div class="logoutContent">
+    {% block logoutContent %}
+    {% endblock %}
+</div>
+
+<div class="content">
+    <div class="users">
+        {% block account_content1 %}
+        {% endblock account_content1 %}
+        {%block account_friend_content%}
+        {% endblock account_friend_content %}
+    </div>
+    <div class="Headered">
+        <p>Hello</p>
+        {% if user.is_authenticated %}
+        <a href="{% url 'users:Profile' request.user.username%}">{% endif %}  <h1>{{request.user.username}}</h1> </a>
+        <h2>{{request.user.first_name}}</h2>
+        <h4>Your's number in For Nothing is:</h4><h1> {{request.user.id}}</h1>
+</div>
+<div class="ChatbotOnMain">
+    {%block chatbot%}
+    {%endblock chatbot%}
+
+</div>
+    <div class="Friends_List">
+        <aside>
+            {% include 'flatpages/Account123/friends.html' %}
+        </aside>
+    </div>
+
+                <div class="Messages1">
+
+                        {% block Message_content %}
+                        {%endblock Message_content%}
+
+<ul>
+    <li>{%block Message_content_person %}</li>
+    <li>{%endblock Message_content_person %}</li>
+</ul>
+                    {% block User_content %}
+                    {% endblock User_content %}
+                </div>
+    <div>
+        {% block groups_create %}
+        {% endblock groups_create %}
+    </div>
+    <div>
+        {% block CreateChatForm_content %}
+        {% endblock CreateChatForm_content %}
+    </div>
+    <div>
+        {% block Chat_content_person %}
+        {% endblock Chat_content_person %}
+    </div>
+    <div style="height:5vh;">
+        {% block groups_all %}
+        {% endblock groups_all %}
+    </div>
+    <div style="height:5vh;">
+        {% block groups_detail%}
+        {% endblock groups_detail%}
+    </div>
+
+</div>
+<div class="Posts1">
+        <div class="Posts">
+            {% block Post_content%}
+            {%endblock Post_content%}
+        </div>
+    </div>
+        <div class="Post_create">
+            {% block Post_create_content %}
+            {% endblock Post_create_content %}
+        </div>
+            <!-- тут что то будет -->
+
+<div id="auth">
+    {% block auth %}
+    {% endblock auth %}
+</div>
+
+
+    <div id="AudioHover" onclick="popup()" class="Audio-Player">
+            <div class="Audio-text">
+                <p>
+                   <h2> М<br>у<br>з<br>ы<br>к<br>a</h2>
+                </p>
+            </div>
+            <div clas="player" id="Audio">
+                  <h1>Songs List</h1>
+                  <ul>
+                        {% for song in songs_list %}
+                      <li>
+                          <audio controls="controls"> <source src="{{ song.song.url }}" type="audio/mpeg"></audio>
+                          <strong>{{ song.title }}</strong> by {{ song.artist }}
+                          {% if song.album %}
+                              (Album: {{ song.album }})
+                          {% endif %}
+                          {% if song.release_date %}
+                              - Released on {{ song.release_date }}
+                          {% endif %}
+                      </li>
+                  {% endfor %}
+                </ul>
+            </div>
+    </div>
+
+
+
+<div class="General chat" >
+        <div class="container">
+
+                <a href="{%url 'main_page:main' %}">General chat</a>
+
+                <div class="col-lg-6">
+
+                   {%for chat in chat_messages %}
+                    <li>{{chat.content}}
+                        {{chat.author_GC.username}}</li>
+                    {%endfor%}
+
+                </div>
+
+
+
+
+    </div>
+                <div class="GCINBT">
+
+                                <form method="post" action="{%url 'main_page:main' %}">
+                                    {% csrf_token %}
+                                    <input class='GCinput' type='text' name="content">
+                                    <button class="GCbutton" type="submit">Отправить</button>
+                                </form>
+                </div>
+</div>
+    <span class="mainMenu2">
+    <div class="mainMenu">
+            <div class="auth">
+                {% if request.user.is_authenticated %}
+                <form method="post" action="{% url 'users:logout' %}">
+                    {% csrf_token %}
+                    <button class="exit" type="submit">logout</button>
+                </form>
+                {% else %}
+                    <a href="/^login/$" class="enter">Enter</a>
+                    <a href="/registretion/" class="registretion">Registration</a>
+                {% endif %}
+
+            </div>
+            <div class="homePage">
+                    <a href="{% url 'users:posts' pk=25 %}"><img height="90vh" src="https://avatars.mds.yandex.net/i?id=f8f3f2f37470c16cebd16168a61fb24c82df29e0-10576628-images-thumbs&n=13">
+                        <p>Posts</p>
+                    </a>
+            </div>
+            <div class="Mess">
+                <div class="types_mess">
+                    <a class="main_a" href="/messages/chat/?type=all"><img height="90vh" src="https://icons.iconarchive.com/icons/johanchalibert/mac-osx-yosemite/1024/messages-icon.png">
+                        <p>Messages</p>
+                    </a>
+                </div>
+            </div>
+            <div class="Groups">
+                    <a href="{% url 'groups:all' %}">
+                        <img height="90vh" src="https://avatars.mds.yandex.net/i?id=06535d084eca5e0b9fd5fb6d68552d08568e5b01-10021482-images-thumbs&n=13">
+                        <p>Groups</p>
+                    </a>
+            </div>
+            <div class="Users">
+                    <a href="/users"><img height="90vh" src="https://avatars.mds.yandex.net/i?id=121151ef2e1f8e48571690c15d128eb7b7f37462-12323508-images-thumbs&n=13" >
+                        <p>Users</p>
+                    </a>
+            </div>
+        <div class="chatbot">
+            <a href="{% url 'chatbot:chat'%}">
+                <img height="90vh" src="https://avatars.mds.yandex.net/i?id=3686d64639e9d6abc607b5be43314f4614ffcd6b-10844270-images-thumbs&n=13">
+                <p>chatbot</p>
+            </a>
+        </div>
+        <div class="Friends">
+            <a href="{% url 'users:FriendUsers'%}">
+                <img height="90vh" src="https://avatars.mds.yandex.net/i?id=be10b347d5003d7ff3813ab7fcdd22a70a7dca49-12399165-images-thumbs&n=13">
+                <p>Friends</p>
+            </a>
+        </div>
+    </div>
+
+    </span>
+    <div>
+
+    </div>
+
+</body>
+</html>
+
+<!--                    <div class="kinds">-->
+<!--                        <a href="">Личный чат</a>-->
+<!--                        <a href=""> Общий чатик</a>-->
+<!--                        <a>ИИ</a>-->
+<!--                    </div>-->

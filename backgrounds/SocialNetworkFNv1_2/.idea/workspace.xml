@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7dbf005b-3cab-4efb-b21d-c43088b43fb4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/main/NeuraChatBot/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/db.sqlite3-shm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/db.sqlite3-wal" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/main/middleware.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/media/backgrounds/2024/06/08/2020-01-09.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/messages_main/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/messages_main/migrations/0002_remove_message_recipient.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/messages_main/migrations/0003_message_recipient.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/messages_main/migrations/0004_chat_name.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/messages_main/migrations/0005_remove_message_recipient_message_recipients.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/messages_main/migrations/0006_messagereadstatus.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/messages_main/migrations/0007_message_read_message_read_timestamp_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/messages_main/migrations/0008_remove_message_read_remove_message_read_timestamp_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/messages_main/migrations/0009_rename_read_messagereadstatus_is_read_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/messages_main/migrations/0011_messagereadstatus_alter_readreceipt_unique_together_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/messages_main/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/static/js/account.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/static/js/messages.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/templates/flatpages/Account123/friends.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/templates/flatpages/Account123/search_results.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/templates/flatpages/message/html/chat_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/users/context_processors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/users/migrations/0020_block.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/users/migrations/0021_alter_friendshiprequest_status.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/users/serializers.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/main" />
+  </component>
+  <component name="ProjectId" id="2TkdRK35hzjMHdaAiSsRzTTJ5d3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SocialNetworkFN" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="SocialNetworkFN v1.2" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="SocialNetworkFN v1.2" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rikud\PycharmProjects\SocialNetworkFN — копия\main\media\media\Profile\Background" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\rikud\PycharmProjects\SocialNetworkFN\main\templates\flatpages\chatbot" />
+      <recent name="C:\Users\rikud\PycharmProjects\SocialNetworkFN\main\templates\flatpages" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.views (2)">
+    <configuration name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SocialNetworkFN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/main/NeuraChatBot" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main/NeuraChatBot/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SocialNetworkFN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/main/groups" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main/groups/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tests" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SocialNetworkFN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/main/groups" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main/groups/tests.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="views (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SocialNetworkFN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/main/groups" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main/groups/views.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="views (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SocialNetworkFN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/main/NeuraChatBot" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main/NeuraChatBot/views.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.views (2)" />
+        <item itemvalue="Python.test (1)" />
+        <item itemvalue="Python.views (1)" />
+        <item itemvalue="Python.tests" />
+        <item itemvalue="Python.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7dbf005b-3cab-4efb-b21d-c43088b43fb4" name="Default Changelist" comment="" />
+      <created>1691591002706</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1691591002706</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="906" y="378" key="#Inspections" timestamp="1717858611199">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="906" y="378" key="#Inspections/0.0.2560.1400/-1920.181.1920.1040@0.0.2560.1400" timestamp="1717858611199" />
+    <state x="1047" y="501" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1716944231442">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1047" y="501" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400/-1920.181.1920.1040@0.0.2560.1400" timestamp="1716944231442" />
+    <state x="819" y="465" width="440" height="490" key="FileChooserDialogImpl" timestamp="1717425298588">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="819" y="465" width="440" height="490" key="FileChooserDialogImpl/0.0.2560.1400/-1920.181.1920.1040@0.0.2560.1400" timestamp="1717425298588" />
+    <state width="2517" height="398" key="GridCell.Tab.0.bottom" timestamp="1713344787066">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="398" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.181.1920.1040@0.0.2560.1400" timestamp="1713344787066" />
+    <state width="2517" height="398" key="GridCell.Tab.0.center" timestamp="1713344787066">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="398" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.181.1920.1040@0.0.2560.1400" timestamp="1713344787066" />
+    <state width="2517" height="398" key="GridCell.Tab.0.left" timestamp="1713344787066">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="398" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.181.1920.1040@0.0.2560.1400" timestamp="1713344787066" />
+    <state width="2517" height="398" key="GridCell.Tab.0.right" timestamp="1713344787066">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="398" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.181.1920.1040@0.0.2560.1400" timestamp="1713344787066" />
+    <state x="781" y="344" key="SettingsEditor" timestamp="1720885879965">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="781" y="344" key="SettingsEditor/0.0.2560.1400/-1920.181.1920.1040@0.0.2560.1400" timestamp="1720885879965" />
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2" timestamp="1716922114291">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2/0.0.2560.1400/-1920.181.1920.1040@0.0.2560.1400" timestamp="1716922114291" />
+    <state x="1097" y="613" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1716922118486">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1097" y="613" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/-1920.181.1920.1040@0.0.2560.1400" timestamp="1716922118486" />
+    <state x="1122" y="0" width="1156" height="920" key="dock-window-1" timestamp="1720010118292">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1122" y="0" width="1156" height="920" key="dock-window-1/0.0.2560.1400/-1920.181.1920.1040@0.0.2560.1400" timestamp="1720010118292" />
+    <state x="-1253" y="300" width="585" height="801" key="find.popup" timestamp="1716898351754">
+      <screen x="-1920" y="181" width="1920" height="1040" />
+    </state>
+    <state x="-1253" y="300" width="585" height="801" key="find.popup/0.0.2560.1400/-1920.181.1920.1040@-1920.181.1920.1040" timestamp="1716898351754" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1717878368691">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/-1920.181.1920.1040@0.0.2560.1400" timestamp="1717878368691" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main/messages_main/views.py</url>
+          <line>356</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
