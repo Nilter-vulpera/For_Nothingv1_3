@@ -19,7 +19,7 @@ urlpatterns = [
     path('chat/', ChatListView.as_view(), name='chat_list'),
     path('chats/', chat_list , name='few_chats_list'),
     # path('1234',select_color,name='main1234')
-    path('send_message/', views.send_message_api, name='send_message'),
+    path('chats/send_message/', views.send_message_api, name='send_message'),
     path('messages/<int:chat_id>/<int:message_id>/<str:username>/get_messages/', views.get_messages, name='get_messages'),
     #path('messages/chat/<int:chat_id>/send/', views.send_message_api, name='send_message_api'),
 

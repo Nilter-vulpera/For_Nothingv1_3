@@ -375,13 +375,28 @@ def chat_view(request):
 
 # send_email_task.delay('Subject','Message', ['rikudo.sanin98@mail.ru'])
 
+@login_required
+@csrf_exempt  # Временно для отладки
 def send_message(request):
     if request.method == 'POST':
-        chat_id = request.POST['chat_id']
-        content = request.POST['content']
-        chat = Chat.objects.get(id=chat_id)
-        message = Message.objects.create(chat=chat, user=request.user, content=content)
-        return JsonResponse({'success': True})
+        try:
+            chat_id = request.POST.get('chat_id')
+            content = request.POST.get('content')
+            
+            if not chat_id or not content:
+                return JsonResponse({'success': False, 'error': 'Missing required fields'}, status=400)
+                
+            chat = Chat.objects.get(id=chat_id)
+            message = Message.objects.create(chat=chat, author=request.user, message=content)
+            
+            return JsonResponse({'success': True})
+            
+        except Chat.DoesNotExist:
+            return JsonResponse({'success': False, 'error': 'Chat not found'}, status=404)
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)}, status=500)
+    else:
+        return JsonResponse({'success': False, 'error': 'Invalid request method'}, status=400)
 
 def get_messages(request, chat_id, message_id, username):
     try:
