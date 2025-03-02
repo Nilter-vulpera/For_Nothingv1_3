@@ -12,6 +12,8 @@
 }
 .users_list
 {
+    overflow-y:scroll;
+    height:25vh;  
     box-shadow: 10px 5px 5px red;
     border:solid 5px gold;
 }

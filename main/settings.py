@@ -19,7 +19,7 @@ from dotenv import load_dotenv
 env = environ.Env()
 environ.Env.read_env()
 HUGGINGFACE_TOKEN = env('HUGGINGFACE_TOKEN')
-
+DEEPSEEK_API_KEY=env('DeepSeek')
 GOOGLE_API_KEY=env('GOOGLE_API_KEY')
 load_dotenv()
 
@@ -54,9 +54,9 @@ SECRET_KEY = 'django-insecure-tvgtjsw%d+skrljq$slxt7u(a_x1*3qp0$(6!b2k(v!bnct(8&
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.161','localhost', '95.37.113.139']
+ALLOWED_HOSTS = [ '93.120.189.147','192.168.0.161','localhost',]
 
 STATIC_URL = '/static/'
 if DEBUG:
@@ -72,7 +72,7 @@ else:
         'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     )
 MEDIA_URL = '/media/'
-
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SECURE = False
 
@@ -92,7 +92,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+    'rest_framework',
     'API',
     'csp',
     'NeuraChatBot',
@@ -149,7 +149,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('95.37.113.139', 8085)],
+            "hosts": [('93.120.189.147', 8085)],
         },
     },
 }
@@ -209,8 +209,8 @@ LOGIN_REDIRECT_URL = '/'
 
 AUTH_USER_MODEL='auth.User'
 CSRF_TRUSTED_ORIGINS = [
-    'http://95.37.113.139:8085',
-    'https://95.37.113.139:8085',
+    'http://93.120.189.147:8085',
+    'https://93.120.189.147:8085',
     
     ]
 CSP_DEFAULT_SRC = ("'self'",)
@@ -219,8 +219,8 @@ CSP_SCRIPT_SRC = (
     'https://code.jquery.com/',
     'http://gc.kis.v2.scr.kaspersky-labs.com',
     'ws://gc.kis.v2.scr.kaspersky-labs.com',
-    'http://95.37.113.139:8085/static/js/main.js',
-    'http://95.37.113.139:8085/static/js/messages.js',
+    'http://93.120.189.147:8085/static/js/main.js',
+    'http://93.120.189.147:8085/static/js/messages.js',
     "'nonce-HelloFromHell5156'", 
     
     # Добавление nonce для встроенных скриптов

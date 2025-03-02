@@ -33,11 +33,11 @@
                     <a class="list-group-item {% if companion == last_message.author and not last_message.is_readed %}unreaded{% endif %}"
                        href="{% url 'messages_main:messages' chat_id=chat.id message_id=last_message.id username=companion.username %}">
                 {% else %}
-                    {% if companion %}
-                        <a href="{% url 'messages_main:messages' chat_id=chat.id message_id=0 username=companion.username %}">
-                    {% else %}
-                        <a href="{% url 'messages_main:messages' chat_id=chat.id message_id=0 username=request.user.username %}">
-                    {% endif %}
+                  {% if companion %}
+                        <a class="list-group-item" href="{% url 'messages_main:messages' chat_id=chat.id message_id=0 username=companion.username %}">
+                  {% else %}
+                        <a class="list-group-item" href="{% url 'messages_main:messages' chat_id=chat.id message_id=0 username=request.user.username %}">
+                  {% endif %}
                 {% endif %}
 
                     <img class="avatar-messages" src="{{ companion.userprofile.get_avatar }}">

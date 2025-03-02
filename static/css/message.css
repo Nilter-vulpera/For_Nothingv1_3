@@ -10,7 +10,9 @@ h2{
     box-shadow: 10px 5px 5px red;
     margin-left:20%;
     border:solid gold;
-    position:fixed;
+    position:relative;
+    left:57%;
+    right:43%;
 
 
 
@@ -43,10 +45,10 @@ h2{
 }
 textarea{
     display:inline-block;
-    background: fixed;
+    background: linear-gradient(yellow,red);
     resize: none;
-    border:solid gold;
-
+    border: solid white;
+    
 
 
 

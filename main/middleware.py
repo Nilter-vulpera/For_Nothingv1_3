@@ -1,6 +1,6 @@
 from django.http import HttpResponseForbidden
 
-ALLOWED_IPS = ['127.0.0.1', '79.126.25.39']  # замените на ваши IP-адреса
+ALLOWED_IPS = ['127.0.0.1', '192.168.0.145']  # замените на ваши IP-адреса
 
 class RestrictAdminMiddleware:
     def __init__(self, get_response):

@@ -80,6 +80,7 @@ def Add_Comment(request,pk):
         form = PostMessages1Form(request.POST)
         if form.is_valid():
             comments = form.save(commit=False)
+            comments.author_message_content = request.user
             comments.post = post
             comments.save()
             return redirect("users:posts", post.id)

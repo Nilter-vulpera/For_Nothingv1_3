@@ -1,7 +1,7 @@
 import random
 import json
 import pickle
-
+from openai import OpenAI
 # from django.http import JsonResponse
 from django.shortcuts import render
 # from numpy import array
@@ -13,7 +13,11 @@ from django.shortcuts import render
 # import re
 # from .models import predict
 from .forms import MessageFormForBot
-
+import requests
+import json
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
 # lemmatizer = WordNetLemmatizer()
 # intents = json.loads(open('NeuraChatBot/intents.json').read())
 #
@@ -80,6 +84,41 @@ def chat(request):
         form = MessageFormForBot()
 
     return render(request, 'flatpages/chatbot/chatbot.html', {"response": response, "form": form})
+#DEEPSEEK_API_URL = "https://api.deepseek.com/v1/" # Замените на реальный URL API
+#@csrf_exempt
+
+#def chat(request):
+#    client = OpenAI(api_key=settings.DEEPSEEK_API_KEY, base_url="https://api.deepseek.com")
+#    response_text = None
+#    if request.method == 'POST':
+#        form = MessageFormForBot(request.POST)
+#        if form.is_valid():
+#            promp = form.cleaned_data['message_to_chat_bot_text']
+#            # context = form.cleaned_data['context_field']
+#            # question = form.cleaned_data['question_field']
+#            try:
+#                response = client.chat.completions.create(
+#                    model="deepseek-chat",
+#                    messages=[
+#                        {"role":"system","content":"You are a helpful assistant"},
+#                        {"role": "user", "content":promp},
+#                    
+#                    ],
+#                    stream=False)
+#                    
+#                response_text= response.choices[0].message.content
+#            except Exception as e:
+#                response_text = f"Ошибка: {str(e)}"
+#        else:
+#            response_text = "Некорректное заполнение формы."
+#    else:
+#        form = MessageFormForBot()
+
+#    return render(request, 'flatpages/chatbot/chatbot.html', {"response": response_text, "form": form})
+
+
+
+
 
 
 

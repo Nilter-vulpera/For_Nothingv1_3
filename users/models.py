@@ -7,7 +7,7 @@ from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import AbstractBaseUser
 from groups.models import Groups
-
+from datetime import datetime
 
 class AutoDateTimeField(models.DateTimeField):
     def pre_save(self, model_instance, add):
@@ -51,11 +51,13 @@ class FriendshipRequest(models.Model):
     def __str__(self):
         return self.status
 
-
+def user_directory_path(instance, filename):
+    # Файлы будут загружены в MEDIA_ROOT/user_<id>/<filename>
+    return 'user_{0}/backgrounds/{1}/{2}/{3}/{4}'.format(instance.user.username,datetime.now().year,datetime.now().month,datetime.now().day ,filename)
 class BackGround(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
 
-    background_img = models.ImageField(upload_to='backgrounds/%Y/%m/%d/')
+    background_img = models.ImageField(upload_to=user_directory_path)
 
     def __str__(self):
         return self.user.username
@@ -66,9 +68,7 @@ class BackGround(models.Model):
 class BotUser(models.Model):
     botuser = models.OneToOneField(User,on_delete=models.CASCADE)
     BotUserStatus = True
-def user_directory_path(instance, filename):
-    # Файлы будут загружены в MEDIA_ROOT/user_<id>/<filename>
-    return 'user_{0}/{1}'.format(instance.user.id, filename)
+
 class photo(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     photo = models.ImageField(upload_to=user_directory_path, blank=True)

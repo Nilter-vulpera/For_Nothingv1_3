@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +13,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Security-Policy" content="script-src-elem 'self' 'nonce-HelloFromHell5156' https://code.jquery.com/jquery-1.10.2.js https://code.jquery.com/jquery-3.6.0.min.js http://gc.kis.v2.scr.kaspersky-labs.com ws://gc.kis.v2.scr.kaspersky-labs.com http://127.0.0.1:8000/static/js/main.js 'unsafe-inline';">
         <title>Main Template</title>
-        <script src="{% static 'js/main.js' %}" nonce="HelloFromHell5156"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="{% static 'js/main.js' %}" defer></script>
+        <script src="{% static 'js/messages.js' %}" defer></script>
         <title>Title</title>
         <style>
             body {
@@ -67,10 +68,11 @@
         </aside>
     </div>
 
-                <div class="Messages1">
+<div class="Messages1">
 
-                        {% block Message_content %}
-                        {%endblock Message_content%}
+        {% block Message_content %}
+        {%endblock Message_content%}
+</div>
 
 <ul>
     <li>{%block Message_content_person %}</li>
@@ -222,12 +224,12 @@
                 <p>Friends</p>
             </a>
         </div>
-    </div>
+    
 
     </span>
-    <div>
+    
 
-    </div>
+    
 
 </body>
 </html>

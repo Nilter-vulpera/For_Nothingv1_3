@@ -24,4 +24,4 @@ class addSubscribe(forms.ModelForm):
 class PostMessages1Form(forms.ModelForm):
     class Meta:
         model = PostMessages
-        fields = ['contentForPosts','author_message_content']
+        fields = ['contentForPosts']

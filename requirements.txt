@@ -64,8 +64,11 @@ django-cors-headers
 django-csp	
 django-environ	
 django-forms-bootstrap	
+django-filter
 dnspython	
 docopt	
+dotenv
+djangorestframework
 exceptiongroup	
 executing	
 fairscale	
@@ -116,7 +119,8 @@ langcodes
 language-data	
 libclang	
 locket	
-marisa-trie	
+marisa-trie
+markdown
 matplotlib		
 matplotlib-inline		
 mattermostwrapper	

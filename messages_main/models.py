@@ -6,8 +6,9 @@ from django.urls import reverse
 
 
 
-def user_directory_path(instance,filename):
-    return 'media/messages/{0}/{1}'.format(instance.author, filename)
+def user_directory_path(instance, filename):
+    # Файлы будут загружены в MEDIA_ROOT/user_<id>/<filename>
+    return 'messages/{0}/{1}'.format(instance.author,filename)
 
 class Chat(models.Model):
     DIALOG = 'D'
@@ -28,7 +29,9 @@ class Chat(models.Model):
     participants = models.ManyToManyField(User, related_name='chats')
     created_at = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=255, null=True, blank=True)
-
+    class Meta:
+        ordering = ['type']
+        
     def str(self):
         return f"Chat {self.id}"
 
@@ -50,11 +53,12 @@ class Message(models.Model):
         ('red', 'red'),
         ('green', 'green'),
         ('blue', 'blue'),
-        ('black', 'black')
+        ('black', 'black'),
+        ('white','white')
     )
     recipients = models.ManyToManyField(User, related_name='recipient')
     chat = models.ForeignKey(Chat, verbose_name=_("Чат"), on_delete=models.CASCADE, )
-    author = models.ForeignKey(User, verbose_name=_("Пользователь"), on_delete=models.CASCADE, )
+    author = models.ForeignKey('auth.User', verbose_name=_("Пользователь"), on_delete=models.CASCADE, )
     message = models.TextField(_("Сообщение"))
     pub_date = models.DateTimeField(_('Дата сообщения'), default=timezone.now)
     is_readed = models.BooleanField(_('Прочитано'), default=False)

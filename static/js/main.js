@@ -2,6 +2,8 @@ function popup(){
     var change1= document.getElementById("Audio");
     change1.classList.toggle('show');
 }
+
+
 function color(){
     document.querySelector('form').addEventListener('submit', function(event) {
         var message = document.getElementById('message');

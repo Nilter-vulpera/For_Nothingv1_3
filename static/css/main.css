@@ -6,9 +6,9 @@ li{
     border:solid 2px gold;
     position:fixed;
     margin-top:68vh;
-    margin-left:9vh;
+    margin-left:3vh;
     background:linear-gradient(red,yellow);
-    text:10vh;
+    :10vh;
 
 }
 .window{
@@ -116,22 +116,22 @@ margin-top:5%;
 
 }
 .Messages1{
-
+  display:block;
   height:80%;
 
 
-width: 35%;
-margin-left:15%;
-padding: 10px;
+  width: 35%;
+  right:50%;
+  padding: 10px;
 
-margin-top:1%;
+  margin-top:1%;
 
 
 }
 
 .Posts1{
-    margin-left:50vh;
-    margin-top:5vh;
+    margin-left:60vh;
+    margin-top:-2vh;
 
 
 }
@@ -148,16 +148,31 @@ margin-left:30%;
 
 
 
-.container{
-    position:absolute;
-    overflow-y:scroll;
-    z-index:2;
-    background:linear-gradient(yellow,red);
-    border:solid gold;
-    width:16%;
-    right:0;
-    height:500px;
+.container {
+    position: absolute;
+    left:90%;
+    overflow-y: scroll;
+    z-index: 2;
+    background: linear-gradient(yellow, red);
+    border: solid gold;
+    width: 20%; /* Изменено с 16% на 20% для лучшей адаптивности */
+    right: 0;
+    height: 500px;
+}
 
+/* Медиа-запрос для уменьшения ширины на меньших экранах */
+@media (max-width: 768px) {
+    .container {
+        width: 30%; /* Увеличение ширины для мобильных устройств */
+        height: 400px; /* Уменьшение высоты для мобильных устройств */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 40%; /* Увеличение ширины для очень маленьких экранов */
+        height: 300px; /* Уменьшение высоты для очень маленьких экранов */
+    }
 }
 .GCINBT{
     position:absolute;
@@ -197,27 +212,35 @@ margin-left:30%;
     border:liner red;
 
 }
-.mainMenu{
-    position:fixed;
-    margin-top:-5vh;
-    bottom:-5vh;
-    display:flex;
-    margin-left:50vh;
+.mainMenu {
+    position: fixed;
+    margin-top: 2vh; /* Изменено с -5vh на 2vh для лучшей адаптивности */
+    bottom: 2vh; /* Изменено с -5vh на 2vh для лучшей адаптивности */
+    display: flex;
+    justify-content: center; /* Центрирование элементов в меню */
+    width: 100%; /* Установка ширины в 100% для адаптивности */
+}
 
+.mainMenu p {
+    visibility: hidden;
+    background: linear-gradient(red, yellow);
+    border-radius: 5vh;
+    padding: 10px; /* Добавлено для улучшения внешнего вида */
 }
-.mainMenu p{
-    visibility:hidden;
-    background:linear-gradient(red,yellow);
-    border-radius:5vh;
-    
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+    .mainMenu {
+        margin-top: 5vh; /* Увеличение отступа для мобильных устройств */
+        bottom: 5vh; /* Увеличение отступа для мобильных устройств */
+    }
+
+    .mainMenu .auth {
+        left: 0; /* Изменено для лучшего позиционирования на мобильных устройствах */
+        top: 1vh; /* Изменено для лучшего позиционирования на мобильных устройствах */
+    }
 }
-.mainMenu .auth {
-    position:fixed;
-    left:-20vh;
-    top:-1vh;
-    display:inline;
-    
-}
+
 .nickname{
     margin-left:72%;
     bottom:7%;

@@ -37,7 +37,7 @@
             <h2>Заблокирована функция написания сообщений</h2>
         {% else %}
             {% if chat_type == 'C' %}
-                 <form method="post" action="{% url 'messages_main:chat_detail' chat123.id %}">
+                 <form method="post" action="{% url 'messages_main:chat_detail' chat123.id %}" enctype="multipart/form-data">
                      <div class="textarea2">
                          {% csrf_token %}
                          {{ Messageform123.as_p }}
@@ -45,7 +45,7 @@
                      </div>
                  </form>
              {% else %}
-                <form method="post" action="{% url 'messages_main:createDialog' chat123.id recipients.username %}">
+                <form method="post" action="{% url 'messages_main:createDialog' chat123.id recipients %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ Messageform123.as_p }}
                     <button id="send-button" type="submit" class="btn">{% trans "Отправить в диалог" %}</button>

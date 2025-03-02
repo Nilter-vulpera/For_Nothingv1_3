@@ -6,13 +6,15 @@ from django.urls import reverse
 
 
 # Create your models here.
-
+def Group_directory_path(instance, filename):
+    # Файлы будут загружены в MEDIA_ROOT/user_<id>/<filename>
+    return 'group_{0}/user_{1}/{2}'.format(instance.group.name, instance.user.username, filename)
 class Groups(models.Model):
     name = models.CharField(max_length=100)
     id = models.AutoField(primary_key=True)
     subs = models.ManyToManyField(User, blank=True, related_name='subsForGroups')
     AdminForGroups = models.ForeignKey(User, on_delete=models.CASCADE, related_name='admin')
-    images=models.ImageField(upload_to="media/GroupsImages",default="media/backgrounds/ForNothing.jpg")
+    images=models.ImageField(upload_to=Group_directory_path,default="media/backgrounds/ForNothing.jpg")
     def __str__(self):
         return self.name
 
