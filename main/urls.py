@@ -28,7 +28,7 @@ urlpatterns = [
     path('', include('users.urls')),
     path('messages/', include(('messages_main.urls'),namespace='messages_main')),
     path(r'^', include('main_page.urls')),
-    path('groups/',include('groups.urls'))
-
+    path('groups/',include('groups.urls')),
+    
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

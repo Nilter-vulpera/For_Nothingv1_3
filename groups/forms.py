@@ -12,7 +12,7 @@ class GroupsCreate(forms.ModelForm):
 class PostForGroupsForm(forms.ModelForm):
     class Meta:
         model = PostForGroups
-        fields = ['content', 'photo', 'user']
+        fields = ['content', 'photo']
 
 
 class addSubscribe(forms.ModelForm):

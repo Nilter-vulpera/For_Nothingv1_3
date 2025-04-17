@@ -34,6 +34,8 @@ urlpatterns = [
     # path('user_profile/<int:pk>/', StatusForm.as_view(), name='StatusForm'),
     path('user_profile/<str:username>/', StatusForm, name='Profile'),
     path('license/',license,name="license"),
+    path('add_misconduct/', add_misconduct_user, name='add_misconduct_user'),
+    path('', misconduct_users),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

@@ -8,13 +8,16 @@ body{
     min-height:10vh;
     height:auto;
     border:solid gold;
-    background: linear-gradient(45deg, red, blue);
+    background: linear-gradient(45deg, red,gold, transparent);
     color:yellow;
     overflow-y:scroll;
 }
 .ChatBot{
-    border-top-left-radius: 90px;
 
-    color:red;
-    background: linear-gradient(gray,gold);
+    border-top-left-radius: 4vh;
+
+    color:white;
+    background: linear-gradient(135deg, gold,red, transparent);
 }
+.ChatBot h1{
+padding-left:4vh;}

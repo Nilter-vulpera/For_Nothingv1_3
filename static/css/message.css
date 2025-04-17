@@ -2,7 +2,7 @@ h2{
     background-color:red;
 }
 .panel{
-
+    background: linear-gradient(45deg, red,gold, transparent);
     top: 10; right:500;
     width:50vh;
     overflow-y:scroll;
@@ -11,8 +11,8 @@ h2{
     margin-left:20%;
     border:solid gold;
     position:relative;
-    left:57%;
-    right:43%;
+    left:30vh;
+    
 
 
 
@@ -44,11 +44,11 @@ h2{
     
 }
 textarea{
-    display:inline-block;
-    background: linear-gradient(yellow,red);
-    resize: none;
-    border: solid white;
     
+    background: linear-gradient(purple,gold);
+    resize: none;
+    border: solid black;
+
 
 
 
@@ -79,8 +79,20 @@ textarea{
   max-width:35vh;
   word-wrap:break-word;
 }
-
-
+.links_from_messages a{
+   border:solid red;
+   border-radius:5vh;
+   color:;
+   background:linear-gradient(purple,gold);
+}
+.textareaInMessages{
+  position:relative;
+  left:30vh;
+  bottom:71.5vh;
+  border:solid white;
+  background:linear-gradient(purple,gold);
+  width:30vh;
+}
 
 
 

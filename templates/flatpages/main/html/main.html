@@ -25,7 +25,8 @@
                 background: url({% if request.user.is_authenticated and request.user.background.background_img %}
                     {{ user.background.background_img.url }}
                 {% else %}
-                    /media/backgrounds/ForNothing.jpg
+                    
+                   /media/ForNothing.jpg
                 {% endif %});
                 background-repeat: no-repeat;
                 height:110vh;
@@ -120,6 +121,14 @@
     {% endblock auth %}
 </div>
 
+<div class="MiscondactUsers">
+  <h1>Неправомерные пользователи</h1>
+    <ul>
+        {% for misconduct_user in misconduct_users %}
+            <h2><li>{{ misconduct_user.user.username }} - {{ misconduct_user.reason }}</li><h2>
+        {% endfor %}
+    </ul>
+</div>
 
     <div id="AudioHover" onclick="popup()" class="Audio-Player">
             <div class="Audio-text">
@@ -224,7 +233,14 @@
                 <p>Friends</p>
             </a>
         </div>
-    
+        
+{%if user.username == "Foren" %}
+      <div>
+        <a href="{% url 'users:add_misconduct_user'%}">
+          <img height="90vh" src="https://avatars.mds.yandex.net/i?id=be10b347d5003d7ff3813ab7fcdd22a70a7dca49-12399165-images-thumbs&n=13">
+          <p>Blocked Users</p>
+      </div>
+{%endif%}      
 
     </span>
     

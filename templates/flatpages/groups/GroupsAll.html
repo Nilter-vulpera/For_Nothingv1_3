@@ -2,7 +2,10 @@
 {% load static %}
 {%block groups_all %}
     <div class="GroupsMenu">
+      <a href="{% url 'groups:group_create'%}">
+      <h1>Create</h1>
         <div class="GroupName">
+        
             {% for group in groups %}
 
                 <a href="{% url 'groups:group_detail' group.pk%}">
@@ -11,8 +14,7 @@
                 </a>
             {%endfor%}
         </div>
-            <a href="{% url 'groups:group_create'%}">
-        <h1>Create</h1>
+            
     </a>
 
 

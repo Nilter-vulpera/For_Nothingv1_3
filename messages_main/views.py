@@ -36,14 +36,59 @@ def index(request):
 
 
 class DialogsView(View):
-    def get(self, request):
-        dialogs = Chat.objects.filter(members__in=[request.user.id])[:20]
-        chats = Chat.objects.filter(type='C')
+    def get(self,request):
+    # Получаем все чаты пользователя
+        user_chats = Chat.objects.filter(members__in=[request.user.id])
+        
+        # Создаем список для хранения информации о чатах с последними сообщениями
+        chat_data = []
+        
+        for chat in user_chats:
+            # Получаем последнее сообщение в чате
+            last_message = chat.last_message
+            
+            if chat.type == 'D':  # Диалог
+                recipient = chat.members.exclude(id=request.user.id).first()
+                if recipient:
+                    chat_data.append({
+                        'id': chat.id,
+                        'type': 'D',
+                        'name': recipient.username,
+                        'avatar': recipient.userprofile.get_avatar() if hasattr(recipient, 'userprofile') else None,
+                        'last_message': {
+                            'author': last_message.author.username if last_message else None,
+                            'content': last_message.message if last_message else None,
+                            'pub_date': last_message.pub_date if last_message else chat.created_at
+                        },
+                        'created_at': chat.created_at
+                    })
+            else:  # Групповой чат
+                chat_data.append({
+                    'id': chat.id,
+                    'type': 'C',
+                    'name': chat.name or f"Чат {chat.id}",
+                    'last_message': {
+                        'author': last_message.author.username if last_message else None,
+                        'content': last_message.message if last_message else None,
+                        'pub_date': last_message.pub_date if last_message else chat.created_at
+                    },
+                    'created_at': chat.created_at
+                })
+        
+        # Сортируем чаты по дате последнего сообщения (от новых к старым)
+        chat_data.sort(key=lambda x: x['last_message']['pub_date'], reverse=True)
+        
+        # Разделяем на диалоги и групповые чаты
+        dialogs = [chat for chat in chat_data if chat['type'] == 'D']
+        chats = [chat for chat in chat_data if chat['type'] == 'C']
+        
         users = User.objects.all()
-        return render(request, 'flatpages/message/html/Messages.html', {'user_profile': request.user,
-                                                                        'dialogs': dialogs, 'users': users,
-                                                                        'chats': chats,
-                                                                        })
+        return render(request, 'flatpages/message/html/Messages.html', {
+            'user_profile': request.user,
+            'dialogs': dialogs, 
+            'users': users,
+            'chats': chats,
+        })
                                                                         
                                                                         
                                                                         
@@ -67,11 +112,46 @@ class ChatListView(ListView):
         chat_type = self.request.GET.get('type')
         if chat_type in ['D', 'C']:
             queryset = queryset.filter(type=chat_type)
-        return queryset
+        chats = list(queryset)
+        chats.sort(key=lambda chat: chat.last_message.pub_date if chat.last_message else chat.created_at, reverse=True)
+        return chats
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['chat_type'] = self.request.GET.get('type', 'all')
+        # Добавляем информацию о последних сообщениях
+        chat_data = []
+        for chat in context['chats']:
+            last_message = chat.last_message
+            if chat.type == 'D':
+                recipient = chat.members.exclude(id=self.request.user.id).first()
+                if recipient:
+                    chat_data.append({
+                        'id': chat.id,
+                        'type': 'D',
+                        'name': recipient.username,
+                        'avatar': recipient.userprofile.get_avatar() if hasattr(recipient, 'userprofile') else None,
+                        'last_message': {
+                            'author': last_message.author.username if last_message else None,
+                            'content': last_message.message if last_message else None,
+                            'pub_date': last_message.pub_date if last_message else chat.created_at
+                        },
+                        'created_at': chat.created_at
+                    })
+            else:
+                chat_data.append({
+                    'id': chat.id,
+                    'type': 'C',
+                    'name': chat.name or f"Чат {chat.id}",
+                    'last_message': {
+                        'author': last_message.author.username if last_message else None,
+                        'content': last_message.message if last_message else None,
+                        'pub_date': last_message.pub_date if last_message else chat.created_at
+                    },
+                    'created_at': chat.created_at
+                })
+        
+        context['chat_data'] = chat_data
         return context
 
 
@@ -261,8 +341,13 @@ class MessagesView(View):
             message_form = MessageForm1234()
             is_blocked = self.is_blocked(request.user, recipient)
 
-            # Fetch the message using message_id
-            message = get_object_or_404(Message, id=message_id)
+            # Fetch the message using message_id if it exists
+            message = None
+            if message_id:
+                try:
+                    message = Message.objects.get(id=message_id)
+                except Message.DoesNotExist:
+                    pass
 
         return render(
             request,

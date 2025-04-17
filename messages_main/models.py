@@ -29,18 +29,19 @@ class Chat(models.Model):
     participants = models.ManyToManyField(User, related_name='chats')
     created_at = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=255, null=True, blank=True)
+    message_in_chat = models.ForeignKey("Message",related_name=("Message_in_chat"), on_delete=models.CASCADE, null=True)
     class Meta:
-        ordering = ['type']
+        ordering = ['-created_at']
         
     def str(self):
         return f"Chat {self.id}"
 
     @property
     def last_message(self):
-        return self.messages.order_by('-timestamp').first()
+        return self.message_set.order_by('-pub_date').first()
 
     def get_messages(self):
-        return self.messages.all().order_by('timestamp')
+        return self.message_set.all().order_by('pub_date')
 
 #     OR
 

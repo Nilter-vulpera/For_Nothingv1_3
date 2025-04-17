@@ -23,7 +23,7 @@
     border-bottom:solid red;
 }
 .Posts_posts{
-    background: linear-gradient(red,gold);
+    background: linear-gradient(45deg, red,gold, transparent);
     border-top: dashed red;
     display:inline-block;
     position:sticky;
@@ -42,7 +42,7 @@
     position:absolute;
     display:block;
     margin-left:100%;
-    margin-top:-100%;
+    margin-top:-110%;
 
 
 
@@ -62,7 +62,7 @@
 }
 .commentsForMainPosts {
 
-    background:linear-gradient(red,yellow);
+    background:linear-gradient(purple,gold);
     position:absolute;
     display:inline-block;
     border:solid 5px black;

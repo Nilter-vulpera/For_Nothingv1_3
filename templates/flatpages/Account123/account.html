@@ -10,7 +10,12 @@
             <p><strong>Username:</strong> {{ page_user }}</p><br><br>
             <p><strong>Bio:</strong> {{ profile.bio }}</p><br><br>
             <p>
-                <img src="{{ page_user.profile.avatar.url }}" height="50px" width="50px">
+                <img src="{% if request.user.is_authenticated and request.user.photo.photo %}
+                    {{ user.photo.photo.url }}
+                {% else %}
+                    
+                   /media/ForNothing.jpg
+                {% endif %})" height="100px" width="100px">
             </p>
             {% if page_user != request.user %}
                 {% if not is_blockedByUou %}

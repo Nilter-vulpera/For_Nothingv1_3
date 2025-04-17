@@ -1,7 +1,9 @@
 {% extends 'flatpages/main/html/main.html' %}
 {% load static %}
 {%block groups_create %}
+<div style="background:red; ">
     <div class="panel">
+    
          <form method="post" id="community_create" enctype="multipart/form-data">
              {% csrf_token %}
              {{GroupCreateForm.as_p}}
@@ -9,5 +11,6 @@
              <input type="submit" value="Подтвердить">
 
         </form>
+     </div>   
     </div>
 {%endblock%}

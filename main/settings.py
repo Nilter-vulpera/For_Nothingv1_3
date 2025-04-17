@@ -56,7 +56,7 @@ SECRET_KEY = 'django-insecure-tvgtjsw%d+skrljq$slxt7u(a_x1*3qp0$(6!b2k(v!bnct(8&
 
 DEBUG = True
 
-ALLOWED_HOSTS = [ '93.120.189.147','192.168.0.161','localhost',]
+ALLOWED_HOSTS = [ '100.68.105.222','192.168.0.161','localhost','82.208.124.88']
 
 STATIC_URL = '/static/'
 if DEBUG:
@@ -149,7 +149,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('93.120.189.147', 8085)],
+            "hosts": [('100.68.105.222', 8085)],
         },
     },
 }
@@ -209,8 +209,8 @@ LOGIN_REDIRECT_URL = '/'
 
 AUTH_USER_MODEL='auth.User'
 CSRF_TRUSTED_ORIGINS = [
-    'http://93.120.189.147:8085',
-    'https://93.120.189.147:8085',
+    'http://100.68.105.222:8085',
+    'https://100.68.105.222:8085',
     
     ]
 CSP_DEFAULT_SRC = ("'self'",)
@@ -219,8 +219,8 @@ CSP_SCRIPT_SRC = (
     'https://code.jquery.com/',
     'http://gc.kis.v2.scr.kaspersky-labs.com',
     'ws://gc.kis.v2.scr.kaspersky-labs.com',
-    'http://93.120.189.147:8085/static/js/main.js',
-    'http://93.120.189.147:8085/static/js/messages.js',
+    'http://100.68.105.222:8085/static/js/main.js',
+    'http://100.68.105.222:8085/static/js/messages.js',
     "'nonce-HelloFromHell5156'", 
     
     # Добавление nonce для встроенных скриптов

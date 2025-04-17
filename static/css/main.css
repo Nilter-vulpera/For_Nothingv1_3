@@ -7,7 +7,7 @@ li{
     position:fixed;
     margin-top:68vh;
     margin-left:3vh;
-    background:linear-gradient(red,yellow);
+    background:linear-gradient(purple,yellow);
     :10vh;
 
 }
@@ -15,9 +15,7 @@ li{
 
 }
 .ChatbotOnMain{
-    border-top-left-radius: 90px;
-
-    border:solid gold;
+    
     position:absolute;
     margin-left:67vh;
     margin-top:5vh;
@@ -25,10 +23,6 @@ li{
 }
 
 
-.Messages1{
-
-
-}
 
 .Audio-Player{
     visibility:hidden;
@@ -39,7 +33,7 @@ li{
     border:solid gold;
     height:912px;
     position:fixed;
-    background:linear-gradient(red,yellow);
+    background:linear-gradient(purple,yellow);
     width:3%;
     display:inline-block;
     transition:3s;
@@ -72,7 +66,7 @@ margin-top:5%;
     font-size:150%;
     margin-left:16%;
     border:solid gold;
-    background:linear-gradient(red,yellow);
+    background:linear-gradient(purple,yellow);
     margin-right:20%;
     position:fixed;
     top:0px;
@@ -109,18 +103,20 @@ margin-top:5%;
 
 }
 .registretion:hover{
-    background-color:red;
+    background-color:purple;
 }
 
 .col-lg-12{
 
 }
 .Messages1{
-  display:block;
+  position:center;
+  margin-left:30vh;
+  display:inline-block;
   height:80%;
 
 
-  width: 35%;
+  
   right:50%;
   padding: 10px;
 
@@ -128,6 +124,7 @@ margin-top:5%;
 
 
 }
+
 
 .Posts1{
     margin-left:60vh;
@@ -153,7 +150,7 @@ margin-left:30%;
     left:90%;
     overflow-y: scroll;
     z-index: 2;
-    background: linear-gradient(yellow, red);
+    background: linear-gradient(yellow,purple);
     border: solid gold;
     width: 20%; /* Изменено с 16% на 20% для лучшей адаптивности */
     right: 0;
@@ -178,7 +175,7 @@ margin-left:30%;
     position:absolute;
     top:60%;
     right:0%;
-    background:linear-gradient(red,yellow);
+    background:linear-gradient(purple,yellow);
 
 
 }
@@ -223,7 +220,7 @@ margin-left:30%;
 
 .mainMenu p {
     visibility: hidden;
-    background: linear-gradient(red, yellow);
+    background: linear-gradient(purple, yellow);
     border-radius: 5vh;
     padding: 10px; /* Добавлено для улучшения внешнего вида */
 }
@@ -246,7 +243,7 @@ margin-left:30%;
     bottom:7%;
     position:fixed;
     border:solid gold;
-    background:linear-gradient(red,yellow); 
+    background:linear-gradient(purple,aedyellow); 
 
 }
 .mainMenu a{

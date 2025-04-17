@@ -370,3 +370,31 @@ def search_users(request):
     
 def license(request):
     return render(request, 'flatpages/main/html/license.html')
+    
+    
+def add_misconduct_user(request):
+    if request.method == 'POST':
+        user_id = request.POST.get('user_id')
+        reason = request.POST.get('reason')
+        user_to_add = get_object_or_404(User, id=user_id)
+
+        # Проверяем, существует ли уже запись для данного пользователя
+        misconduct_user, created = MisconductUser.objects.get_or_create(user=user_to_add, defaults={'reason': reason})
+
+        if not created:
+            # Если запись уже существует, вы можете обновить причину
+            misconduct_user.reason = reason
+            misconduct_user.save()
+
+        return render(request, 'flatpages/main/html/main.html', {'misconduct_users': misconduct_users}) # Перенаправляем на страницу со списком неправомерных пользователей
+
+    users = User.objects.all()  # Получаем всех пользователей для выбора
+    return render(request, 'flatpages/Account123/MisconductUsers.html', {'users': users})    
+    
+
+    
+    
+    
+def misconduct_users(request):
+    misconduct_users = MisconductUser.objects.all()  # Получаем всех неправомерных пользователей
+    return render(request, 'flatpages/main/html/main.html', {'misconduct_users': misconduct_users})

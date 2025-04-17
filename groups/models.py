@@ -20,7 +20,8 @@ class Groups(models.Model):
 
     def get_posts(self):
         return PostForGroups.objects.filter(groupsPosts=self)
-
+    class Meta:
+        ordering = ['name']
 
 class PostForGroups(models.Model):
     content = models.TextField(blank=True)
@@ -29,6 +30,8 @@ class PostForGroups(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     groupsPosts = models.ForeignKey(Groups, on_delete=models.CASCADE)
     slug = models.SlugField(blank=True, null=True, unique=True)
+    class Meta:
+        ordering = ['-time_create']
 
     def get_commentsForPosts(self):
         return PostMessages.objects.filter(Post=self)
@@ -41,12 +44,14 @@ class GroupMember(models.Model):
 
 
 class PostMessages(models.Model):
+    
 
     contentForPosts = models.TextField(default='')
     author_message_content = models.ForeignKey(User, verbose_name=("Пользователь"), on_delete=models.CASCADE, )
     pub_date = models.DateTimeField(('Дата сообщения'), default=timezone.now)
     Post = models.ForeignKey(PostForGroups,related_name="Posts", on_delete=models.deletion.CASCADE, null=True)
-
+    class Meta:
+        ordering = ['-pub_date']
     def __str__(self):
         return f'{self.author_message_content} - {self.contentForPosts}'
     def get_commentsForPosts(self):

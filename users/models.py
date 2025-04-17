@@ -70,11 +70,14 @@ class BotUser(models.Model):
     BotUserStatus = True
 
 class photo(models.Model):
-    user=models.OneToOneField(User,on_delete=models.CASCADE)
-    photo = models.ImageField(upload_to=user_directory_path, blank=True)
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+
+    photo = models.ImageField(upload_to=user_directory_path)
 
     def __str__(self):
         return self.user.username
+    def save(self,*args,**kwargs):
+        super().save(*args,**kwargs)
 class Block(models.Model):
     blocker = models.ForeignKey('auth.User', related_name='blocking', on_delete=models.CASCADE)
     blocked = models.ForeignKey('auth.User', related_name='blocked_by', on_delete=models.CASCADE)
@@ -85,5 +88,15 @@ class Block(models.Model):
 
     def __str__(self):
         return f"{self.blocker} blocked {self.blocked}"
+
+class MisconductUser(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    reason = models.TextField()  # Причина, по которой пользователь считается неправомерным
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def str(self):
+        return f"{self.user.username} - {self.reason}"
+
+
 
 

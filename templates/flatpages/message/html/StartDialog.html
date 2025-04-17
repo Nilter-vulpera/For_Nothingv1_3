@@ -36,6 +36,7 @@
         {% if is_blocked123 %}
             <h2>Заблокирована функция написания сообщений</h2>
         {% else %}
+        <div class="textareaInMessages">
             {% if chat_type == 'C' %}
                  <form method="post" action="{% url 'messages_main:chat_detail' chat123.id %}" enctype="multipart/form-data">
                      <div class="textarea2">
@@ -51,6 +52,7 @@
                     <button id="send-button" type="submit" class="btn">{% trans "Отправить в диалог" %}</button>
                 </form>
         {% endif %}
+        </div>
     {% endif %}
 
 

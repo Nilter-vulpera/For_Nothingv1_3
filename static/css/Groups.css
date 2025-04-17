@@ -31,13 +31,13 @@
     background-color:gold;
     color:red;
     font-size: 1.5rem;
-    padding:5vh;
+    
     text-decoration: none;
 
 }
 .GroupDetail{
     top: 10%;
-    background:linear-gradient(red,yellow);
+    background: linear-gradient(45deg, red,gold, transparent);
     width:500px;
     overflow-y:scroll;
     min-height:30vh;

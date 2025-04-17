@@ -7,13 +7,15 @@
   {% csrf_token %}
 
     <div class="panel">
+      <div class="links_from_messages">
         <h1>Your Chats</h1>
-        <div>
+        
             <a href="{% url 'messages_main:chat_list' %}?type=all">All Chats</a> |
             <a href="{% url 'messages_main:chat_list' %}?type=D">Dialogs</a> |
             <a href="{% url 'messages_main:chat_list' %}?type=C">Group Chats</a> |
             <a href="{% url 'messages_main:few_chats_list' %}">Few chats</a>
         </div>
+      
         {% load custom_tags %}
         {% if dialogs.count == 0 %}
             {% trans "Нет ни одного начатого диалога" %}
