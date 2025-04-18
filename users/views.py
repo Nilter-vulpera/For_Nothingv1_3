@@ -386,7 +386,7 @@ def add_misconduct_user(request):
             misconduct_user.reason = reason
             misconduct_user.save()
 
-        return render(request, 'flatpages/main/html/main.html', {'misconduct_users': misconduct_users}) # Перенаправляем на страницу со списком неправомерных пользователей
+        
 
     users = User.objects.all()  # Получаем всех пользователей для выбора
     return render(request, 'flatpages/Account123/MisconductUsers.html', {'users': users})    
@@ -397,4 +397,4 @@ def add_misconduct_user(request):
     
 def misconduct_users(request):
     misconduct_users = MisconductUser.objects.all()  # Получаем всех неправомерных пользователей
-    return render(request, 'flatpages/main/html/main.html', {'misconduct_users': misconduct_users})
+    return render(request, 'flatpages/main/html/main.html', {'bad_users': misconduct_users})
